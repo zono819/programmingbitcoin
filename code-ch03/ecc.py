@@ -496,3 +496,31 @@ class PrivateKeyTest(TestCase):
         z = randint(0, 2**256)
         sig = pk.sign(z)
         self.assertTrue(pk.point.verify(z, sig))
+
+
+# t ,prime=(int(x) for x in input().split())
+# for i in range(t):
+#     p = list(map(int,input().split()))
+#     xx = FieldElement(p[0],prime)
+#     yy = FieldElement(p[1],prime)
+#     aa = FieldElement(p[2],prime)
+#     bb = FieldElement(p[3],prime)
+#     print(2*Point(xx,yy,aa,bb))
+
+x = 0x79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
+y = 0x483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8
+
+zero = FieldElement(0x0,P)
+seven = FieldElement(0x7,P)
+gx = FieldElement(x,P)
+gy = FieldElement(y,P)
+G = Point(gx,gy,zero,seven)
+print(N*G)
+
+prime = 223
+a = FieldElement(0,prime)
+b = FieldElement(7,prime)
+x = FieldElement(15,prime)
+y = FieldElement(86,prime)
+p = Point(x,y,a,b)
+print(7*p)
